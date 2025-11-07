@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Farmácia Sustentável</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <style>
+    .fadeIn { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center items-center p-4 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
+
+  <div class="w-full max-w-md bg-white dark:bg-gray-900 shadow-2xl rounded-2xl p-8 transform transition-transform duration-500 hover:scale-105 fadeIn">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-gray-800 dark:text-gray-100">Login</h2>
+
+    <form id="loginForm" novalidate class="space-y-4">
+      <!-- Definicao Usuario -->
+      <select id="tipoUsuario" class="w-full border px-3 py-2 rounded-lg">
+        <option value="consumidor">Sou Consumidor</option>
+        <option value="instituicao">Sou Instituição</option>
+      </select>
+
+      <!-- E-mail -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">E-mail</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail" required
+          class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"/>
+      </div>
+
+      <!-- Senha -->
+      <div>
+        <label for="senha" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" required
+          class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"/>
+      </div>
+
+      <button type="submit" id="btnLogin" disabled
+        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 disabled:bg-blue-300 transition-colors">
+        Entrar
+      </button>
+
+      <p id="mensagem" class="text-center text-sm mt-2 text-red-500 dark:text-red-400" aria-live="polite"></p>
+    </form>
+
+    <p class="text-center text-sm mt-6 text-gray-700 dark:text-gray-300">
+      Não tem conta? <a href="cadastro.html" class="text-blue-600 dark:text-blue-400 hover:underline">Cadastre-se</a>
+    </p>
+
+    <!-- Dark Mode Toggle -->
+    <div class="text-center mt-4">
+      <button id="toggleDark" class="px-3 py-1 border rounded-lg text-sm text-gray-700 dark:text-gray-300 border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+        Alternar Dark Mode
+      </button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="../static/js/login.js"></script>
+
+  <script>
+    // Toggle global dark mode
+    document.getElementById("toggleDark").addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
+  </script>
+</body>
+</html>

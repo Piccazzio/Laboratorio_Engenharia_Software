@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Perfil</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<style>
+  body { background-color: #f8f9fa; }
+
+  .fadeIn { animation: fadeIn 0.5s ease-in-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .navbar-custom { background-color: #5dade2 !important; }
+  .navbar-brand { font-weight: bold; color: #fff !important; }
+  .nav-link, .dropdown-toggle { color: #fff !important; font-weight: 500; }
+  .nav-link:hover, .dropdown-item:hover { color: #d6eaf8 !important; }
+
+  .perfil-container { max-width: 600px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+  .foto-perfil { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid #5dade2; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom shadow-sm px-4 py-3">
+  <a class="navbar-brand" href="#">Farmácia Sustentável</a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+      <li class="nav-item"><a class="nav-link" href="medicamentos.html">Ofertas Próximas ao Vencimento</a></li>
+      <!-- <li class="nav-item"><a class="nav-link" href="#">Categorias</a></li> -->
+      <li class="nav-item"><a class="nav-link" href="sustentabilidade.html">Sustentabilidade</a></li>
+      <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li> 
+    </ul>
+
+    <ul class="navbar-nav ms-lg-3">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          👤 Meu Perfil
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" id="perfilDropdown">
+          <li><a class="dropdown-item" href="meu_perfil.html">Minha Conta</a></li>
+          <li><a class="dropdown-item" href="#">Meus Pedidos</a></li>
+          <!-- Meus Medicamentos será adicionado via JS para instituições -->
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-danger" href="#" id="btnLogout">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Conteúdo -->
+<div class="perfil-container fadeIn text-center">
+  <h2 class="mb-4">Meu Perfil</h2>
+
+  <img id="fotoPerfil" src="" alt="Foto do usuário" class="foto-perfil">
+
+  <div class="mb-3">
+    <label for="foto" class="form-label">Alterar Foto de Perfil</label>
+    <input class="form-control" type="file" id="foto" accept="image/*">
+  </div>
+
+  <div class="mb-3 text-start">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" id="nome" class="form-control">
+  </div>
+
+  <div class="mb-3 text-start" id="cpfField" style="display:none;">
+    <label for="cpf" class="form-label">CPF</label>
+    <input type="text" id="cpf" class="form-control">
+  </div>
+
+  <div class="mb-3 text-start" id="cnpjField" style="display:none;">
+    <label for="cnpj" class="form-label">CNPJ</label>
+    <input type="text" id="cnpj" class="form-control">
+  </div>
+
+  <div class="mb-3 text-start">
+    <label for="telefone" class="form-label">Telefone</label>
+    <input type="text" id="telefone" class="form-control">
+  </div>
+
+  <div class="mb-3 text-start">
+    <label for="endereco" class="form-label">Endereço</label>
+    <input type="text" id="endereco" class="form-control">
+  </div>
+
+  <div class="mb-3 text-start">
+    <label for="email" class="form-label">E-mail</label>
+    <input type="email" id="email" class="form-control" disabled>
+  </div>
+
+  <div class="mb-3 text-start">
+    <label for="senha" class="form-label">Senha</label>
+    <input type="password" id="senha" class="form-control">
+  </div>
+
+  <button id="btnSalvar" class="btn btn-primary mt-2 w-100">Salvar Alterações</button>
+
+  <div id="mensagem" class="mt-3" role="alert"></div>
+</div>
+
+<!-- Footer -->
+<footer class="mt-5 bg-primary text-white py-4 text-center">
+  &copy; 2025 Farmácia Sustentável. Todos os direitos reservados.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/meu_perfil.js"></script>
+<script>
+  // Logout
+  const btnLogout = document.getElementById('btnLogout');
+  btnLogout.addEventListener('click', () => {
+    localStorage.removeItem('usuarioLogado');
+    window.location.href = "login.html";
+  });
+
+  // Inserir "Meus Medicamentos" dinamicamente para instituições
+  const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+  if (usuarioLogado && usuarioLogado.tipo === 'instituicao') {
+    const dropdown = document.getElementById('perfilDropdown');
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.className = 'dropdown-item';
+    a.href = 'medicamentos_instituicao.html';
+    a.textContent = 'Meus Medicamentos';
+    li.appendChild(a);
+
+    // Insere antes do divider
+    const divider = dropdown.querySelector('hr');
+    dropdown.insertBefore(li, divider);
+  }
+</script>
+
+</body>
+</html>

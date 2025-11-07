@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Farmácia Sustentável</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <style>
+    .fadeIn { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center items-center p-4 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
+
+  <div class="w-full max-w-md bg-white dark:bg-gray-900 shadow-2xl rounded-2xl p-8 transform transition-transform duration-500 hover:scale-105">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-gray-800 dark:text-gray-100">Criar Conta</h2>
+
+    <form id="cadastroForm" novalidate class="space-y-4">
+
+      <!-- Checkboxes centralizados -->
+      <div class="flex justify-center gap-6 mb-6">
+        <label class="flex items-center gap-2">
+          <input type="checkbox" name="tipoUsuario" value="pessoa" class="tipoUsuarioCheckbox">
+          <span class="text-gray-700 dark:text-gray-300">Pessoa</span>
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="checkbox" name="tipoUsuario" value="instituicao" class="tipoUsuarioCheckbox">
+          <span class="text-gray-700 dark:text-gray-300">Instituição</span>
+        </label>
+      </div>
+
+      <!-- Campos comuns -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">E-mail</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail" required
+          class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"/>
+      </div>
+
+      <div>
+        <label for="senha" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" required
+          class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"/>
+      </div>
+
+      <!-- Checklist senha -->
+      <ul class="text-sm mt-2 space-y-1" id="checklistSenha" aria-live="polite">
+        <li id="check-tamanho" class="flex items-center text-red-500 transition-all duration-300">
+          <span class="text-lg mr-2 icon">❌</span> Mínimo 7 caracteres
+        </li>
+        <li id="check-maiuscula" class="flex items-center text-red-500 transition-all duration-300">
+          <span class="text-lg mr-2 icon">❌</span> Uma letra maiúscula
+        </li>
+        <li id="check-minuscula" class="flex items-center text-red-500 transition-all duration-300">
+          <span class="text-lg mr-2 icon">❌</span> Uma letra minúscula
+        </li>
+        <li id="check-especial" class="flex items-center text-red-500 transition-all duration-300">
+          <span class="text-lg mr-2 icon">❌</span> Um caractere especial
+        </li>
+      </ul>
+
+      <!-- Campos específicos Pessoa -->
+      <div id="pessoaFields" class="space-y-4 hidden">
+        <div>
+          <label for="nome" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nome</label>
+          <input type="text" id="nome" placeholder="Digite seu nome"
+            class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors"/>
+        </div>
+        <div>
+          <label for="sobrenome" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sobrenome</label>
+          <input type="text" id="sobrenome" placeholder="Digite seu sobrenome"
+            class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors"/>
+        </div>
+        <div>
+          <label for="cpf" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CPF</label>
+          <input type="text" id="cpf" placeholder="Digite seu CPF"
+            class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors"/>
+        </div>
+      </div>
+
+      <!-- Campos específicos Instituição -->
+      <div id="instituicaoFields" class="space-y-4 hidden">
+        <div>
+          <label for="nomeInstituicao" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nome da Instituição</label>
+          <input type="text" id="nomeInstituicao" placeholder="Digite o nome da instituição"
+            class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors"/>
+        </div>
+        <div>
+          <label for="cnpj" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CNPJ</label>
+          <input type="text" id="cnpj" placeholder="Digite o CNPJ"
+            class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors"/>
+        </div>
+        <div>
+          <label for="responsavel" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Responsável</label>
+          <input type="text" id="responsavel" placeholder="Nome do responsável"
+            class="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors"/>
+        </div>
+      </div>
+
+      <button type="submit" id="btnSubmit" disabled
+        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition disabled:bg-blue-300">
+        Cadastrar
+      </button>
+
+      <p id="mensagem" class="text-center text-sm mt-2 text-red-500 dark:text-red-400" aria-live="polite"></p>
+    </form>
+
+    <p class="text-center text-sm mt-6 text-gray-700 dark:text-gray-300">
+      Já tem conta? <a href="login.html" class="text-blue-600 dark:text-blue-400 hover:underline">Faça login</a>
+    </p>
+
+    <div class="text-center mt-4">
+      <button id="toggleDark" class="px-3 py-1 border rounded-lg text-sm text-gray-700 dark:text-gray-300 border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+        Alternar Dark Mode
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Alternar dark mode
+    const toggleDark = document.getElementById('toggleDark');
+    toggleDark.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Mostrar campos de acordo com o tipo de usuário
+    const checkboxes = document.querySelectorAll('.tipoUsuarioCheckbox');
+    const pessoaFields = document.getElementById('pessoaFields');
+    const instituicaoFields = document.getElementById('instituicaoFields');
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        // Apenas um checkbox ativo por vez
+        checkboxes.forEach(c => { if(c !== cb) c.checked = false; });
+
+        if(document.querySelector('.tipoUsuarioCheckbox:checked')) {
+          if(cb.value === 'pessoa') {
+            pessoaFields.classList.remove('hidden');
+            instituicaoFields.classList.add('hidden');
+          } else {
+            pessoaFields.classList.add('hidden');
+            instituicaoFields.classList.remove('hidden');
+          }
+        } else {
+          pessoaFields.classList.add('hidden');
+          instituicaoFields.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+  <script src="../static/js/cadastro.js"></script>
+</body>
+</html>

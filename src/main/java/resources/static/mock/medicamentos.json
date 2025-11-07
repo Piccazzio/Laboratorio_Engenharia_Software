@@ -1,0 +1,65 @@
+[
+  {
+    "nome": "Paracetamol 500mg",
+    "preco": 120.90,
+    "categoria": "Analgésicos",
+    "diasProxVencimento": 10,
+    "imagem": "https://picsum.photos/400/300?random=101"
+  },
+  {
+    "nome": "Amoxicilina 250mg",
+    "preco": 18.50,
+    "categoria": "Antibióticos",
+    "diasProxVencimento": 25,
+    "imagem": "https://picsum.photos/400/300?random=102"
+  },
+  {
+    "nome": "Vitamina C 1000mg",
+    "preco": 22.00,
+    "categoria": "Suplementos",
+    "diasProxVencimento": 5,
+    "imagem": "https://picsum.photos/400/300?random=103"
+  },
+  {
+    "nome": "Ibuprofeno 400mg",
+    "preco": 15.30,
+    "categoria": "Analgésicos",
+    "diasProxVencimento": 12,
+    "imagem": "https://picsum.photos/400/300?random=104"
+  },
+  {
+    "nome": "Cefalexina 500mg",
+    "preco": 28.90,
+    "categoria": "Antibióticos",
+    "diasProxVencimento": 20,
+    "imagem": "https://picsum.photos/400/300?random=105"
+  },
+  {
+    "nome": "Ômega 3 1000mg",
+    "preco": 35.00,
+    "categoria": "Suplementos",
+    "diasProxVencimento": 15,
+    "imagem": "https://picsum.photos/400/300?random=106"
+  },
+  {
+    "nome": "Diclofenaco 50mg",
+    "preco": 14.50,
+    "categoria": "Anti-inflamatórios",
+    "diasProxVencimento": 8,
+    "imagem": "https://picsum.photos/400/300?random=107"
+  },
+  {
+    "nome": "Claritromicina 250mg",
+    "preco": 32.20,
+    "categoria": "Antibióticos",
+    "diasProxVencimento": 18,
+    "imagem": "https://picsum.photos/400/300?random=108"
+  },
+  {
+    "nome": "Magnésio 500mg",
+    "preco": 20.00,
+    "categoria": "Suplementos",
+    "diasProxVencimento": 7,
+    "imagem": "https://picsum.photos/400/300?random=109"
+  }
+]

@@ -1,0 +1,454 @@
+/* ===========================
+   FARMÁCIA SUSTENTÁVEL
+   Tema: Tech Blue (#4e73df)
+   =========================== */
+
+/* ----- VARIÁVEIS DE TEMA ----- */
+:root {
+  --primary-color: #4e73df;
+  --primary-dark: #3c5bc0;
+  --secondary-color: #f8f9fb;
+  --text-color: #1a1a1a;
+  --light-gray: #e5e7eb;
+  --border-radius: 1rem;
+  --transition: all 0.3s ease;
+}
+
+/* ----- BASE ----- */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* ----- NAVBAR MODERNA AZUL-TECH ----- */
+.navbar-custom {
+  background: linear-gradient(135deg, #4e73df 0%, #3c5bc0 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.navbar-custom .navbar-brand {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.navbar-custom .navbar-brand:hover {
+  color: #e3e8ff !important;
+}
+
+.navbar-custom .nav-link {
+  color: #f0f3ff !important;
+  font-weight: 500;
+  margin: 0 0.8rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.navbar-custom .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* Ícone de menu em telas pequenas */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+
+/* ----- BARRA DE BUSCA ----- */
+.search-input {
+  border-radius: 2rem;
+  border: 1px solid #ccc;
+  padding: 0.6rem 1rem;
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.25);
+  outline: none;
+}
+
+/* ----- CARROSSEL ----- */
+.carousel {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.carousel img {
+  filter: brightness(0.95);
+  transition: transform 0.8s ease;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.03);
+}
+
+.como-funciona i {
+  transition: transform 0.3s ease;
+}
+.como-funciona .card:hover i {
+  transform: scale(1.2);
+}
+
+/* ----- SEÇÕES ----- */
+section {
+  padding: 2.5rem 0;
+}
+
+h4 {
+  font-weight: 600;
+  color: #0f0f0f;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  border: none;
+  border-radius: var(--border-radius);
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+/* ----- BOTÕES ----- */
+.btn-primary {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(78, 115, 223, 0.3);
+}
+
+/* CHAMADA FINAL */
+.cta-sustentavel {
+  background: linear-gradient(135deg, #3c5bc0, #2ba84a);
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+/* ----- FOOTER ----- */
+footer {
+  background: linear-gradient(180deg, var(--primary-dark), #2d3d8a);
+  color: #eaeaea;
+  padding: 3rem 0;
+}
+
+footer h5 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: #cfd4f7;
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+footer hr {
+  border-color: rgba(255, 255, 255, 0.15);
+  margin: 2rem 0;
+}
+
+footer .small {
+  color: #bfc3e8;
+}
+
+/* ----- ANIMAÇÕES ----- */
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----- RESPONSIVO ----- */
+@media (max-width: 768px) {
+  .navbar-custom .nav-link {
+    margin: 0.3rem 0;
+  }
+
+  .card img {
+    height: 220px;
+    object-fit: cover;
+  }
+}
+
+
+/* ==============================
+   PÁGINA DE MEDICAMENTOS
+============================== */
+
+/* === CAMPO DE BUSCA === */
+.search-input {
+  min-width: 220px;
+  border-radius: 50px;
+  border: 1px solid #c8e6c9;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 200, 150, 0.15);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #06d6a0;
+  box-shadow: 0 0 10px rgba(6, 214, 160, 0.35);
+}
+
+/* === CARD DE MEDICAMENTO === */
+.card-medicamento {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.35s ease;
+  background: linear-gradient(145deg, #ffffff, #f6f7fb);
+  border: 1px solid #e8f5e9;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.card-medicamento:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+/* Imagem */
+.card-medicamento img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid #e0f2f1;
+}
+
+/* ===========================
+   FILTRO DE BUSCA DE MEDICAMENTOS
+   (mantendo classes originais do form)
+   =========================== */
+
+
+form[role="search"] {
+  justify-content: center;
+  margin-bottom: 50; /* espaçamento abaixo */
+}
+
+/* Campo de busca */
+form[role="search"] .search-input {
+  width: 300px; /* reduz largura */
+  border-radius: 25px;
+  border: 1px solid #d9dce3;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+form[role="search"] .search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px rgba(78, 115, 223, 0.3);
+  outline: none;
+  transform: scale(1.03); /* leve destaque ao focar */
+}
+
+/* Botão de busca */
+form[role="search"] .btn {
+  border-radius: 25px;
+  padding: 8px 25px;
+  font-weight: 500;
+  color: #fff;
+  background-color: var(--primary-color);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+form[role="search"] .btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(78, 115, 223, 0.3);
+}
+
+/* Ajuste de layout responsivo */
+@media (max-width: 768px) {
+  form[role="search"] {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  form[role="search"] .search-input {
+    width: 100%;
+  }
+
+  form[role="search"] .btn {
+    width: 100%;
+  }
+}
+
+/* Overlay suave */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0));
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.card-medicamento:hover .card-overlay {
+  opacity: 0.4;
+}
+
+/* Corpo do card */
+.card-body {
+  position: relative;
+  z-index: 3;
+  padding: 1rem 1.25rem;
+}
+
+.card-body h5 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0b3d2e;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.3px;
+}
+
+.card-body p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+}
+
+/* Badge de alerta (vencimento próximo) */
+.badge-alerta {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #ff4d6d, #c9184a);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(255, 77, 109, 0.4);
+  text-transform: uppercase;
+}
+
+/* === FILTROS === */
+.filter-group {
+  margin-bottom: 30px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgb(223, 223, 223);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.filter-group label {
+  color: #000000;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.filter-group select {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: #1b4332;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:hover,
+.filter-group select:focus {
+  border-color: #0686d6;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+
+
+
+
+
+

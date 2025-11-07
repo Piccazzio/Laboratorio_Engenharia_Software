@@ -1,0 +1,225 @@
+/* ===========================
+   FARMÁCIA SUSTENTÁVEL
+   Tema: Tech Blue (#4e73df)
+   =========================== */
+
+/* ----- VARIÁVEIS DE TEMA ----- */
+:root {
+  --primary-color: #4e73df;
+  --primary-dark: #3c5bc0;
+  --secondary-color: #f8f9fb;
+  --text-color: #1a1a1a;
+  --light-gray: #e5e7eb;
+  --border-radius: 1rem;
+  --transition: all 0.3s ease;
+}
+
+/* ----- BASE ----- */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* ----- ANIMAÇÕES ----- */
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----- NAVBAR MODERNA AZUL-TECH ----- */
+.navbar-custom {
+  background: linear-gradient(135deg, #4e73df 0%, #3c5bc0 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.navbar-custom .navbar-brand {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.navbar-custom .navbar-brand:hover {
+  color: #e3e8ff !important;
+}
+
+.navbar-custom .nav-link {
+  color: #f0f3ff !important;
+  font-weight: 500;
+  margin: 0 0.8rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.navbar-custom .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #ffffff !important;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* ----- SEÇÕES ----- */
+.section-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.sustain-img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sustain-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.highlight {
+  color: #1f618d;
+  font-weight: 600;
+}
+
+/* ----- CARDS DE BENEFÍCIOS ----- */
+.card-benefit {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-benefit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* ----- BANNER DE SUSTENTABILIDADE ----- */
+.sustain-banner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-image: url("https://www.portalsolar.com.br/_next/image?url=https%3A%2F%2Fportalsolar-images.s3.us-east-2.amazonaws.com%2Finstitucional-and-info-production%2Fimages%2F13301453-bc8a-4105-94d3-3e6a885a0e68%2Fo-que-e-sustentabilidade.jpg&w=3840&q=100");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: 0;
+  color: #fff;
+  overflow: hidden;
+}
+
+.sustain-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+}
+
+/* ----- FOOTER ----- */
+footer {
+  background: linear-gradient(180deg, var(--primary-dark), #2d3d8a);
+  color: #eaeaea;
+  padding: 3rem 0;
+}
+
+footer h5 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: #cfd4f7;
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+footer hr {
+  border-color: rgba(255, 255, 255, 0.15);
+  margin: 2rem 0;
+}
+
+footer .small {
+  color: #bfc3e8;
+}
+
+/* ----- RESPONSIVO ----- */
+@media (max-width: 768px) {
+  .navbar-custom .nav-link {
+    margin: 0.3rem 0;
+  }
+
+  .card img {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .sustain-banner {
+    height: 280px;
+  }
+
+  .banner-content {
+    padding: 1rem;
+  }
+}
