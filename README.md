@@ -10,7 +10,9 @@ Banco MySQL para persistência de dados.
 
 O principal objetivo é oferecer uma interface simples e eficiente para controle de medicamentos.
 
+<br>
 2. Estrutura do Projeto
+
 2.1 Backend (Spring Boot)
 
 API REST completa.
@@ -49,8 +51,9 @@ Frontend
 Navegador moderno
 
 4. Instalação do Backend
+   
 4.1 Clonando o repositório
-git clone https://github.com/usuario/repositorio.git
+git clone [https://github.com/usuario/repositorio.git](https://github.com/Piccazzio/Laboratorio_Engenharia_Software
 cd repositorio
 
 4.2 Criando o banco
@@ -86,7 +89,7 @@ http://localhost:8000
 
 Abra o arquivo login.html.
 
-Preencha CNPJ e senha.
+Preencha e-mail, senha e selecione o tipo de usuário
 
 Se autenticado, você será redirecionado para o painel principal.
 
@@ -178,6 +181,6 @@ Verificar container
 docker ps
 
 
-11. Testes
+10. Testes
 
 Para a realização de testes, basta utilizar o comando via terminal: mvn clean test
